@@ -62,8 +62,8 @@ function StatsPage() {
         <input type="number" className="w-full border px-4 py-2 rounded" placeholder="Rebounds" value={newStat.rebounds} onChange={e => setNewStat({ ...newStat, rebounds: e.target.value })} />
         <input type="number" className="w-full border px-4 py-2 rounded" placeholder="Steals" value={newStat.steals} onChange={e => setNewStat({ ...newStat, steals: e.target.value })} />
         <input type="number" className="w-full border px-4 py-2 rounded" placeholder="Turnovers" value={newStat.turnovers} onChange={e => setNewStat({ ...newStat, turnovers: e.target.value })} />
-        <input type="number" className="w-full border px-4 py-2 rounded" placeholder="Minutes Played (optional)" value={newStat.minutes} onChange={e => setNewStat({ ...newStat, minutes: e.target.value })} />
         <input type="number" className="w-full border px-4 py-2 rounded" placeholder="Free Throws" value={newStat.freeThrows} onChange={e => setNewStat({ ...newStat, freeThrows: e.target.value })} />
+        <input type="number" className="w-full border px-4 py-2 rounded" placeholder="Minutes Played (optional)" value={newStat.minutes} onChange={e => setNewStat({ ...newStat, minutes: e.target.value })} />
 
         <div className="mt-4">
           <button onClick={handleAddStat} className="w-full bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-500">+ Add Another Game</button>
@@ -77,7 +77,6 @@ function StatsPage() {
                   <thead className="bg-gray-100">
                   <tr>
                     <th className="p-2 font-semibold">Date</th>
-                    <th className="p-2 font-semibold">Opponent</th>
                     <th className="p-2 font-semibold">PTS</th>
                     <th className="p-2 font-semibold">AST</th>
                     <th className="p-2 font-semibold">REB</th>
@@ -91,7 +90,6 @@ function StatsPage() {
                   {gameStats.map((gs, index) => (
                       <tr key={index} className="border-t">
                         <td className="p-2">{gs.date}</td>
-                        <td className="p-2">{gs.opponent}</td>
                         <td className="p-2">{gs.points}</td>
                         <td className="p-2">{gs.assists}</td>
                         <td className="p-2">{gs.rebounds}</td>
