@@ -89,7 +89,7 @@ function StatsPage() {
                   <tbody>
                   {gameStats.map((gs, index) => (
                       <tr key={index} className="border-t">
-                        <td className="p-2">{gs.date}</td>
+                        <td className="p-2">{gs.date ? new Date(gs.date).toLocaleDateString(undefined, { month: 'numeric', day: 'numeric', year: '2-digit' }) : ''}</td>
                         <td className="p-2">{gs.points}</td>
                         <td className="p-2">{gs.assists}</td>
                         <td className="p-2">{gs.rebounds}</td>
