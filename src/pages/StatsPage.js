@@ -62,7 +62,9 @@ function StatsPage() {
                 <h3 className="font-bold mb-2">Games Entered:</h3>
                 <ul className="list-disc list-inside space-y-1">
                   {gameStats.map((gs, index) => (
-                      <li key={index}>{gs.date} vs {gs.opponent} – {gs.points} pts, {gs.assists} ast, {gs.rebounds} reb</li>
+                      <li key={index}>
+                        {gs.date} vs {gs.opponent} – {gs.points} pts, {gs.assists} ast, {gs.rebounds} reb, {gs.steals} stl, {gs.turnovers} tov, {gs.minutes} min
+                      </li>
                   ))}
                 </ul>
                 <div className="mt-6">
