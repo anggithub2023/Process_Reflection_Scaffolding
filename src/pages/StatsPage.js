@@ -38,66 +38,60 @@ function StatsPage() {
   };
 
   return (
-    <div className="max-w-xl mx-auto text-left p-4">
-      <h2 className="text-2xl font-bold text-gray-800 mb-4">My Game Stats</h2>
-      <div className="space-y-4">
-        <input className="w-full border px-4 py-2 rounded" placeholder="Date of Game" value={newStat.date} onChange={e => setNewStat({ ...newStat, date: e.target.value })} />
-        <input className="w-full border px-4 py-2 rounded" placeholder="Opponent Team Name" value={newStat.opponent} onChange={e => setNewStat({ ...newStat, opponent: e.target.value })} />
-        <input className="w-full border px-4 py-2 rounded" placeholder="Points" value={newStat.points} onChange={e => setNewStat({ ...newStat, points: e.target.value })} />
-        <input className="w-full border px-4 py-2 rounded" placeholder="Assists" value={newStat.assists} onChange={e => setNewStat({ ...newStat, assists: e.target.value })} />
-        <input className="w-full border px-4 py-2 rounded" placeholder="Rebounds" value={newStat.rebounds} onChange={e => setNewStat({ ...newStat, rebounds: e.target.value })} />
-        <input className="w-full border px-4 py-2 rounded" placeholder="Steals" value={newStat.steals} onChange={e => setNewStat({ ...newStat, steals: e.target.value })} />
-        <input className="w-full border px-4 py-2 rounded" placeholder="Turnovers" value={newStat.turnovers} onChange={e => setNewStat({ ...newStat, turnovers: e.target.value })} />
-        <input className="w-full border px-4 py-2 rounded" placeholder="Minutes Played (optional)" value={newStat.minutes} onChange={e => setNewStat({ ...newStat, minutes: e.target.value })} />
-        <button onClick={handleAddStat} className="w-full bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-500">+ Add Another Game</button>
+      <div className="max-w-xl mx-auto text-left p-4">
+        <h2 className="text-2xl font-bold text-gray-800 mb-4">My Game Stats</h2>
+        <div className="space-y-4">
+          <input className="w-full border px-4 py-2 rounded" placeholder="Date of Game" value={newStat.date} onChange={e => setNewStat({ ...newStat, date: e.target.value })} />
+          <input className="w-full border px-4 py-2 rounded" placeholder="Opponent Team Name" value={newStat.opponent} onChange={e => setNewStat({ ...newStat, opponent: e.target.value })} />
+          <input className="w-full border px-4 py-2 rounded" placeholder="Points" value={newStat.points} onChange={e => setNewStat({ ...newStat, points: e.target.value })} />
+          <input className="w-full border px-4 py-2 rounded" placeholder="Assists" value={newStat.assists} onChange={e => setNewStat({ ...newStat, assists: e.target.value })} />
+          <input className="w-full border px-4 py-2 rounded" placeholder="Rebounds" value={newStat.rebounds} onChange={e => setNewStat({ ...newStat, rebounds: e.target.value })} />
+          <input className="w-full border px-4 py-2 rounded" placeholder="Steals" value={newStat.steals} onChange={e => setNewStat({ ...newStat, steals: e.target.value })} />
+          <input className="w-full border px-4 py-2 rounded" placeholder="Turnovers" value={newStat.turnovers} onChange={e => setNewStat({ ...newStat, turnovers: e.target.value })} />
+          <input className="w-full border px-4 py-2 rounded" placeholder="Minutes Played (optional)" value={newStat.minutes} onChange={e => setNewStat({ ...newStat, minutes: e.target.value })} />
+          <button onClick={handleAddStat} className="w-full bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-500">+ Add Another Game</button>
 
-        {gameStats.length > 0 && (
-          <div className="mt-6">
-            <h3 className="font-bold mb-2">Games Entered:</h3>
-            <ul className="list-disc list-inside space-y-1">
-              {gameStats.map((gs, index) => (
-                <li key={index}>{gs.date} vs {gs.opponent} – {gs.points} pts, {gs.assists} ast, {gs.rebounds} reb</li>
-              ))}
-            </ul>
-            <div className="mt-6">
-              <h3 className="font-bold mb-2">Averages:</h3>
-              <ul className="list-disc list-inside">
-                <li>Points: {calculateAverage('points')}</li>
-                <li>Assists: {calculateAverage('assists')}</li>
-                <li>Rebounds: {calculateAverage('rebounds')}</li>
-                <li>Steals: {calculateAverage('steals')}</li>
-                <li>Turnovers: {calculateAverage('turnovers')}</li>
-                <li>Minutes: {calculateAverage('minutes')}</li>
+          {gameStats.length > 0 && (
+              <div className="mt-6">
+                <h3 className="font-bold mb-2">Games Entered:</h3>
+                <ul className="list-disc list-inside space-y-1">
+                  {gameStats.map((gs, index) => (
+                      <li key={index}>{gs.date} vs {gs.opponent} – {gs.points} pts, {gs.assists} ast, {gs.rebounds} reb</li>
+                  ))}
+                </ul>
+                <div className="mt-6">
+                  <h3 className="font-bold mb-2">Averages:</h3>
+                  <ul className="list-disc list-inside">
+                    <li>Points: {calculateAverage('points')}</li>
+                    <li>Assists: {calculateAverage('assists')}</li>
+                    <li>Rebounds: {calculateAverage('rebounds')}</li>
+                    <li>Steals: {calculateAverage('steals')}</li>
+                    <li>Turnovers: {calculateAverage('turnovers')}</li>
+                    <li>Minutes: {calculateAverage('minutes')}</li>
+                  </ul>
+                </div>
+              </div>
+          )}
+        </div>
+
+        {history.length > 0 && (
+            <div className="mt-8">
+              <h3 className="font-bold mb-2">Reflection Score History</h3>
+              <ul className="list-disc list-inside space-y-1">
+                {history.map((entry, idx) => (
+                    <li key={idx}>
+                      {new Date(entry.timestamp).toLocaleDateString()} – Score: {entry.total}%
+                    </li>
+                ))}
               </ul>
             </div>
-          </div>
         )}
-      </div>
 
-      {history.length > 1 && (
-        <div className="mt-8">
-          <h3 className="font-bold mb-2">Past Reflections</h3>
-          <ul className="list-disc list-inside space-y-1">
-            {history.slice(0, -1).map((entry, idx) => (
-              <li key={idx}>
-                {new Date(entry.timestamp).toLocaleDateString()} – Score: {entry.total}%
-                {entry.gameStats?.length && (
-                  <ul className="ml-4 list-disc">
-                    {entry.gameStats.map((gs, i) => (
-                      <li key={i}>{gs.date} vs {gs.opponent} – {gs.points} pts</li>
-                    ))}
-                  </ul>
-                )}
-              </li>
-            ))}
-          </ul>
+        <div className="mt-6 flex justify-between gap-4">
+          <button onClick={() => navigate('/results')} className="flex-1 bg-gray-700 text-white px-6 py-3 rounded hover:bg-gray-600">Back to Results</button>
+          <button onClick={() => navigate('/reflect')} className="flex-1 bg-indigo-700 text-white px-6 py-3 rounded hover:bg-indigo-600">New Reflection</button>
         </div>
-      )}
-
-      <div className="mt-6">
-        <button onClick={() => navigate('/results')} className="w-full bg-gray-600 text-white px-6 py-3 rounded hover:bg-gray-500">Back to Results</button>
       </div>
-    </div>
   );
 }
 
