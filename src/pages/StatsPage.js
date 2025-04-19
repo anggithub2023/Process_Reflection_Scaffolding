@@ -15,12 +15,20 @@ function StatsPage() {
     setHistory(stored);
     const last = stored[stored.length - 1];
     if (last?.gameStats) setGameStats(last.gameStats);
+
+    const draft = JSON.parse(localStorage.getItem("newStatDraft"));
+    if (draft) setNewStat(draft);
   }, []);
+
+  useEffect(() => {
+    localStorage.setItem("newStatDraft", JSON.stringify(newStat));
+  }, [newStat]);
 
   const handleAddStat = () => {
     const updatedStats = [...gameStats, newStat];
     setGameStats(updatedStats);
     setNewStat({ date: '', opponent: '', points: '', assists: '', rebounds: '', steals: '', turnovers: '', minutes: '' });
+    localStorage.removeItem("newStatDraft");
 
     const updatedHistory = [...history];
     if (updatedHistory.length) {
@@ -41,10 +49,10 @@ function StatsPage() {
       <div className="max-w-xl mx-auto text-left p-4">
         <h2 className="text-2xl font-bold text-gray-800 mb-4">My Game Stats</h2>
         <div className="space-y-4">
+          <label className="block text-gray-700">Date of Game</label>
           <input
               type="date"
               className="w-full border px-4 py-2 rounded"
-              placeholder="Date of Game"
               value={newStat.date}
               onChange={e => setNewStat({ ...newStat, date: e.target.value })}
           />
