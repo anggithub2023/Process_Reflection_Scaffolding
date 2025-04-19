@@ -36,7 +36,7 @@ function ResultsPage() {
           Start New Reflection
         </button>
         <button onClick={() => navigate('/stats')} className="flex-1 bg-green-600 text-white px-6 py-3 rounded hover:bg-green-500">
-          My Stats
+          Player Stats
         </button>
       </div>
     </div>
