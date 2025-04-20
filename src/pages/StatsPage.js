@@ -67,7 +67,6 @@ function StatsPage() {
 
             {gameStats.length > 0 && (
                 <div className="mt-6">
-                    <h3 className="font-bold mb-2">Games Entered:</h3>
                     <StatsTable gameStats={gameStats} tableRef={tableRef} />
                 </div>
             )}
