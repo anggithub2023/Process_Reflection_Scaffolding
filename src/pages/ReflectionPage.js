@@ -1,4 +1,5 @@
-import React, { useReducer, useEffect } from 'react';
+import React, { useReducer, useEffect, useState } from 'react';
+import ReflectionModal from '../components/ReflectionModal';
 import SectionBlock from '../components/SectionBlock';
 import { scoreValue } from '../helpers/scoring';
 
@@ -36,6 +37,8 @@ const QUESTIONS = {
 };
 
 function ReflectionPage() {
+  const [showModal, setShowModal] = useState(false);
+  const [scoreSummary, setScoreSummary] = useState(null);
   const answersReducer = (state, action) => {
     switch (action.type) {
       case 'SET_ANSWER':
@@ -101,24 +104,9 @@ function ReflectionPage() {
     history.push(summary);
     localStorage.setItem("processHistory", JSON.stringify(history));
     localStorage.removeItem("processAnswers");
-    const icon = total >= 95 ? '🔥' : total >= 85 ? '💪' : '🧱';
-    const modal = document.createElement('div');
-    modal.className = 'fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50';
-    modal.innerHTML = `
-      <div class='bg-white dark:bg-gray-800 text-gray-900 dark:text-white p-6 rounded-lg shadow-lg max-w-sm w-full text-center'>
-        <h2 class='text-xl font-bold mb-2'>${icon} Great Job Reflecting</h2>
-        <p class='mb-2'>Total Score: ${total}%</p>
-        <p class='mb-1 text-sm'>Offense: ${Math.round(offensePct)}%</p>
-        <p class='mb-1 text-sm'>Defense: ${Math.round(defensePct)}%</p>
-        <p class='mb-4 text-sm'>Team Identity: ${Math.round(culturePct)}%</p>
-        <p class='mb-4 font-medium'>Champions do the little things.</p>
-        <button id='confirmModalBtn' class='bg-indigo-600 text-white px-4 py-2 rounded hover:bg-indigo-500'>OK</button>
-      </div>
-    `;
-    document.body.appendChild(modal);
-    document.getElementById('confirmModalBtn').addEventListener('click', () => {
-      window.location.href = '/stats';
-    });
+
+    setScoreSummary({ total, offense: Math.round(offensePct), defense: Math.round(defensePct), culture: Math.round(culturePct) });
+    setShowModal(true);
   };
 
   return (
@@ -152,10 +140,22 @@ function ReflectionPage() {
           <div className="mt-6 flex justify-between gap-4">
             <button onClick={handleSubmit} className="flex-1 bg-indigo-700 text-white px-6 py-3 rounded hover:bg-indigo-600">Submit Reflection</button>
             <button onClick={() => window.location.href='/'} className="flex-1 bg-green-600 text-white px-6 py-3 rounded hover:bg-green-500">Back Home</button>
+
           </div>
         </div>
+
+        {showModal && scoreSummary && (
+            <ReflectionModal
+                total={scoreSummary.total}
+                offense={scoreSummary.offense}
+                defense={scoreSummary.defense}
+                culture={scoreSummary.culture}
+                onClose={() => window.location.href = '/stats'}
+            />
+        )}
       </div>
-  );
+    );
 }
 
 export default ReflectionPage;
+
