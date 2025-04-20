@@ -14,13 +14,10 @@ function HomePage() {
                 A focused tool for players to reflect, improve, and track their journey on and off the court.
             </p>
 
-            <div className="grid gap-6 w-full max-w-4xl px-4 sm:px-6 grid-cols-[repeat(auto-fit,_minmax(240px,_1fr))]">
-                $1
-
-                <div onClick={() => navigate('/readiness')} className="cursor-pointer bg-white dark:bg-gray-800 bg-opacity-90 backdrop-blur-md p-6 rounded-xl shadow-lg hover:shadow-purple-300 hover:scale-105 transform transition duration-300">
-                    <h2 className="text-xl font-semibold text-purple-700 mb-1">🧠 Readiness</h2>
-                    <p className="text-gray-600 dark:text-gray-300 text-sm">Check in on your mental and physical readiness before each session — including mindset, recovery, and injury prevention insights.</p>
-                </div>
+            <div className="grid gap-6 w-full max-w-4xl px-4 sm:px-6 grid-cols-[repeat(auto-fit,_minmax(240px,_1fr))]"><div onClick={() => navigate('/readiness')} className="cursor-pointer bg-white dark:bg-gray-800 bg-opacity-90 backdrop-blur-md p-6 rounded-xl shadow-lg hover:shadow-purple-300 hover:scale-105 transform transition duration-300">
+                <h2 className="text-xl font-semibold text-purple-700 mb-1">🧠 Readiness</h2>
+                <p className="text-gray-600 dark:text-gray-300 text-sm">Check in on your mental and physical readiness before each session — including mindset, recovery, and injury prevention insights.</p>
+            </div>
 
                 <div onClick={() => navigate('/stats')} className="cursor-pointer bg-white dark:bg-gray-800 bg-opacity-90 backdrop-blur-md p-6 rounded-xl shadow-lg hover:shadow-green-300 hover:scale-105 transform transition duration-300">
                     <h2 className="text-xl font-semibold text-green-700 mb-1">📊 Player Stats</h2>
