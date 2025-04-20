@@ -11,7 +11,7 @@ function HomePage() {
                 A focused tool for players to reflect, improve, and track their journey on and off the court.
             </p>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 w-full max-w-xl">
+            <div className="grid gap-6 w-full max-w-4xl grid-cols-[repeat(auto-fit,_minmax(240px,_1fr))]">
                 <div onClick={() => navigate('/reflect')} className="cursor-pointer bg-white p-6 rounded-xl shadow-lg hover:shadow-indigo-200 hover:scale-105 transition">
                     <h2 className="text-xl font-semibold text-indigo-700 mb-1">📝 Reflection</h2>
                     <p className="text-gray-600 text-sm">Answer key questions after every session or game to sharpen your mindset.</p>
