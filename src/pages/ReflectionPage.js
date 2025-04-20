@@ -114,7 +114,7 @@ function ReflectionPage() {
         <div className="max-w-xl mx-auto p-4">
           <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-center text-gray-800 tracking-wide uppercase mb-8">PROCESS REFLECTION</h1>
           <SectionBlock
-              title="Offense (5 minimum questions required)"
+              title={<><span className="text-black dark:text-white">$1</span> <span className="text-sm text-gray-500">(5 minimum questions required)</span></>}
               questions={QUESTIONS.offense}
               sectionKey="offense"
               answers={answers}
