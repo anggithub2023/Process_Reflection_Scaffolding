@@ -5,11 +5,11 @@ import { scoreValue } from '../helpers/scoring';
 const QUESTIONS = {
   offense: [
     "Did I get into the paint before taking a shot?",
-    "Did I move the ball with at least 3+ passes before we shot?",
+    "Did we move the ball with at least three passes before taking a shot?",
     "Did I take smart shots — ones we practice?",
     "Did I make the 'one more' pass when a teammate was more open?",
     "Did I keep proper spacing and timing in our offense?",
-    "Did I stay patient and let plays develop before rushing?"
+    "Did I stay patient and allow plays to develop before rushing?"
   ],
   defense: [
     "Did I stay in a stance and contest every shot?",
@@ -22,8 +22,8 @@ const QUESTIONS = {
   teamIdentity: [
     "Was I a great teammate — vocal, positive, and unselfish?",
     "Did I communicate on defense (screens, cutters, switches)?",
-    "Did I give full effort — hustle plays, box-outs, deflections?",
-    "Did I avoid bad turnovers (no lazy passes or over-dribbling)?",
+    "Did I give full effort — including hustle plays, box-outs, and deflections?",
+    "Did I avoid bad turnovers, such as lazy passes or over-dribbling?",
     "Did I support my teammates on and off the court?",
     "Did I hold myself accountable to our team principles?"
   ]
