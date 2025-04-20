@@ -92,32 +92,34 @@ function ReflectionPage() {
   };
 
   return (
-      <div className="max-w-xl mx-auto p-4">
-        <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-center text-gray-800 tracking-wide uppercase mb-8">PROCESS REFLECTION</h1>
-        <SectionBlock
-            title="Offense"
-            questions={QUESTIONS.offense}
-            sectionKey="offense"
-            answers={answers}
-            handleAnswer={handleAnswer}
-        />
-        <SectionBlock
-            title="Defense"
-            questions={QUESTIONS.defense}
-            sectionKey="defense"
-            answers={answers}
-            handleAnswer={handleAnswer}
-        />
-        <SectionBlock
-            title="Team Identity & Culture"
-            questions={QUESTIONS.teamIdentity}
-            sectionKey="teamIdentity"
-            answers={answers}
-            handleAnswer={handleAnswer}
-        />
-        <div className="mt-6 flex justify-between gap-4">
-          <button onClick={handleSubmit} className="flex-1 bg-indigo-700 text-white px-6 py-3 rounded hover:bg-indigo-600">Submit Reflection</button>
-          <button onClick={() => window.location.href='/'} className="flex-1 bg-green-600 text-white px-6 py-3 rounded hover:bg-green-500">Back Home</button>
+      <div className="min-h-screen bg-gradient-to-br from-white to-slate-100 dark:from-gray-900 dark:to-gray-800">
+        <div className="max-w-xl mx-auto p-4">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-center text-gray-800 tracking-wide uppercase mb-8">PROCESS REFLECTION</h1>
+          <SectionBlock
+              title="Offense"
+              questions={QUESTIONS.offense}
+              sectionKey="offense"
+              answers={answers}
+              handleAnswer={handleAnswer}
+          />
+          <SectionBlock
+              title="Defense"
+              questions={QUESTIONS.defense}
+              sectionKey="defense"
+              answers={answers}
+              handleAnswer={handleAnswer}
+          />
+          <SectionBlock
+              title="Team Identity & Culture"
+              questions={QUESTIONS.teamIdentity}
+              sectionKey="teamIdentity"
+              answers={answers}
+              handleAnswer={handleAnswer}
+          />
+          <div className="mt-6 flex justify-between gap-4">
+            <button onClick={handleSubmit} className="flex-1 bg-indigo-700 text-white px-6 py-3 rounded hover:bg-indigo-600">Submit Reflection</button>
+            <button onClick={() => window.location.href='/'} className="flex-1 bg-green-600 text-white px-6 py-3 rounded hover:bg-green-500">Back Home</button>
+          </div>
         </div>
       </div>
   );
