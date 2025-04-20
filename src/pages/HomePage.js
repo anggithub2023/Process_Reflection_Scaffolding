@@ -1,4 +1,5 @@
 import React from 'react';
+import { FaBrain } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
 
 function HomePage() {
@@ -16,12 +17,12 @@ function HomePage() {
 
             <div className="grid gap-6 w-full max-w-4xl px-4 sm:px-6 grid-cols-[repeat(auto-fit,_minmax(240px,_1fr))]">
                 <div onClick={() => navigate('/reflect')} className="cursor-pointer bg-white dark:bg-gray-800 bg-opacity-90 backdrop-blur-md p-6 rounded-xl shadow-lg hover:shadow-indigo-300 hover:scale-105 transform transition duration-300">
-                    <h2 className="text-xl font-semibold text-indigo-700 mb-1">📝 Reflection</h2>
+                    <h2 className="text-xl font-semibold text-center text-indigo-700 mb-1">📝 Reflection</h2>
                     <p className="text-gray-600 dark:text-gray-300 text-sm">Complete your daily reflection to stay focused on the process and track progress over time.</p>
                 </div>
 
                 <div onClick={() => navigate('/readiness')} className="cursor-pointer bg-white dark:bg-gray-800 bg-opacity-90 backdrop-blur-md p-6 rounded-xl shadow-lg hover:shadow-purple-300 hover:scale-105 transform transition duration-300">
-                <h2 className="text-xl font-semibold text-purple-700 mb-1">🧠 Readiness</h2>
+                <h2 className="flex items-center justify-center gap-2 text-xl font-semibold text-purple-700 mb-1"><FaBrain className="text-2xl" /> Readiness</h2>
                 <p className="text-gray-600 dark:text-gray-300 text-sm">Check in on your mental and physical readiness before each session — including mindset, recovery, and injury prevention insights.</p>
             </div>
 
