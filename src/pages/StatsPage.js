@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import StatForm from '../components/StatForm';
 import StatsTable from '../components/StatsTable';
+import AveragesPanel from '../components/AveragesPanel';
 import { useNavigate } from 'react-router-dom';
 
 function StatsPage() {
@@ -67,42 +68,7 @@ function StatsPage() {
                 <div className="mt-6">
                     <h3 className="font-bold mb-2">Games Entered:</h3>
                     <StatsTable gameStats={gameStats} tableRef={tableRef} />
-
-                    <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div>
-                            <h3 className="font-bold mb-2">Averages:</h3>
-                            <ul className="list-disc list-inside">
-                                <li>Points: {calculateAverage('points')}</li>
-                                <li>Assists: {calculateAverage('assists')}</li>
-                                <li>Rebounds: {calculateAverage('rebounds')}</li>
-                                <li>Steals: {calculateAverage('steals')}</li>
-                                <li>Turnovers: {calculateAverage('turnovers')}</li>
-                                <li>Free Throws: {calculateAverage('freeThrows')}</li>
-                                <li>Minutes: {calculateAverage('minutes')}</li>
-                            </ul>
-                        </div>
-                        <div>
-                            <h3 className="font-bold mb-2">Reflection Score History</h3>
-                            <ul className="space-y-2">
-                                {history.map((entry, idx) => {
-                                    const score = entry.total;
-                                    const badgeColor =
-                                        score >= 85 ? "bg-green-500 text-white" :
-                                            score >= 70 ? "bg-yellow-400 text-black" :
-                                                "bg-red-500 text-white";
-
-                                    return (
-                                        <li key={idx} className="flex items-center justify-between">
-                                            <span>{new Date(entry.timestamp).toLocaleDateString()}</span>
-                                            <span className={`text-sm px-2 py-1 rounded ${badgeColor}`}>
-                        {score}%
-                      </span>
-                                        </li>
-                                    );
-                                })}
-                            </ul>
-                        </div>
-                    </div>
+                    <AveragesPanel gameStats={gameStats} history={history} calculateAverage={calculateAverage} />
                 </div>
             )}
 
