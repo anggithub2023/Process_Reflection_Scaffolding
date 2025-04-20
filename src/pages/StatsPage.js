@@ -55,11 +55,11 @@ function StatsPage() {
 
     return (
         <div className="max-w-xl mx-auto text-left p-4">
-            <h2 className="text-2xl font-bold text-gray-800 mb-4">Player Stats</h2>
+            <h2 className="text-2xl font-bold text-gray-800 mb-4">Track greatness. Start logging your stats.</h2>
 
             <label className="block text-gray-700">Date of Game</label>
             <input type="date" className="w-full border px-4 py-2 rounded" value={newStat.date} onChange={e => setNewStat({ ...newStat, date: e.target.value })} />
-            <input className="w-full border px-4 py-2 rounded" placeholder="Opponent Team Name" value={newStat.opponent} onChange={e => setNewStat({ ...newStat, opponent: e.target.value })} />
+            <input className="w-full border px-4 py-2 rounded" placeholder="Name the squad you just torched 🔥" value={newStat.opponent} onChange={e => setNewStat({ ...newStat, opponent: e.target.value })} />
             <input type="number" className="w-full border px-4 py-2 rounded" placeholder="Points" value={newStat.points} onChange={e => setNewStat({ ...newStat, points: e.target.value })} />
             <input type="number" className="w-full border px-4 py-2 rounded" placeholder="Assists" value={newStat.assists} onChange={e => setNewStat({ ...newStat, assists: e.target.value })} />
             <input type="number" className="w-full border px-4 py-2 rounded" placeholder="Rebounds" value={newStat.rebounds} onChange={e => setNewStat({ ...newStat, rebounds: e.target.value })} />
