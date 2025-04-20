@@ -20,9 +20,9 @@ function HomePage() {
                     <p className="text-gray-600 dark:text-gray-300 text-sm">Answer key questions after every session or game to sharpen your mindset.</p>
                 </div>
 
-                <div onClick={() => navigate('/stats')} className="cursor-pointer bg-white bg-opacity-90 backdrop-blur-md p-6 rounded-xl shadow-lg hover:shadow-green-300 hover:scale-105 transform transition duration-300">
+                <div onClick={() => navigate('/stats')} className="cursor-pointer bg-white dark:bg-gray-800 bg-opacity-90 backdrop-blur-md p-6 rounded-xl shadow-lg hover:shadow-green-300 hover:scale-105 transform transition duration-300">
                     <h2 className="text-xl font-semibold text-green-700 mb-1">📊 Player Stats</h2>
-                    <p className="text-gray-600 text-sm">Track your game-by-game performance, see averages, and download your progress.</p>
+                    <p className="text-gray-600 dark:text-gray-300 text-sm">Track your game-by-game performance, see averages, and download your progress.</p>
                 </div>
 
                 <div onClick={() => navigate('/workouts')} className="cursor-pointer bg-white bg-opacity-90 backdrop-blur-md p-6 rounded-xl shadow-lg hover:shadow-yellow-300 hover:scale-105 transform transition duration-300">
