@@ -26,8 +26,10 @@ function StatsPage() {
     }, [newStat]);
 
     useEffect(() => {
-        if (tableRef.current) {
-            tableRef.current.scrollIntoView({ behavior: 'smooth' });
+        if (gameStats.length > 0 && gameStats.length !== (JSON.parse(localStorage.getItem("processHistory"))?.slice(-1)[0]?.gameStats?.length || 0)) {
+            if (tableRef.current) {
+                tableRef.current.scrollIntoView({ behavior: 'smooth' });
+            }
         }
     }, [gameStats]);
 
@@ -55,7 +57,7 @@ function StatsPage() {
 
     return (
         <div className="max-w-xl mx-auto text-left p-4">
-            <h2 className="text-2xl font-bold text-gray-800 mb-4">Track greatness. Start logging your stats.</h2>
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-indigo-700 dark:text-indigo-300 mb-6 tracking-tight">Track greatness. Start logging your stats.</h2>
 
             <label className="block text-gray-700">Date of Game</label>
             <input type="date" className="w-full border px-4 py-2 rounded" value={newStat.date} onChange={e => setNewStat({ ...newStat, date: e.target.value })} />
