@@ -88,7 +88,7 @@ function ReflectionPage() {
     history.push(summary);
     localStorage.setItem("processHistory", JSON.stringify(history));
     localStorage.removeItem("processAnswers");
-    window.location.href = '/results';
+    window.location.href = '/stats';
   };
 
   return (
