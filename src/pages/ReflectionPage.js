@@ -88,7 +88,19 @@ function ReflectionPage() {
     history.push(summary);
     localStorage.setItem("processHistory", JSON.stringify(history));
     localStorage.removeItem("processAnswers");
-    window.location.href = '/stats';
+    const modal = document.createElement('div');
+    modal.className = 'fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50';
+    modal.innerHTML = `
+      <div class='bg-white dark:bg-gray-800 text-gray-900 dark:text-white p-6 rounded-lg shadow-lg max-w-sm w-full text-center'>
+        <h2 class='text-xl font-bold mb-2'>✔️ Great Job Reflecting</h2>
+        <p class='mb-4'>Your total score was ${total}.<br/>Champions do the little things.</p>
+        <button id='confirmModalBtn' class='bg-indigo-600 text-white px-4 py-2 rounded hover:bg-indigo-500'>OK</button>
+      </div>
+    `;
+    document.body.appendChild(modal);
+    document.getElementById('confirmModalBtn').addEventListener('click', () => {
+      window.location.href = '/stats';
+    });
   };
 
   return (
