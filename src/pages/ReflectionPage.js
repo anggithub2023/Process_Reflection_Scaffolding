@@ -142,20 +142,18 @@ function ReflectionPage() {
             <button onClick={() => window.location.href='/'} className="flex-1 bg-green-600 text-white px-6 py-3 rounded hover:bg-green-500">Back Home</button>
 
           </div>
+          {showModal && scoreSummary && (
+              <ReflectionModal
+                  total={scoreSummary.total}
+                  offense={scoreSummary.offense}
+                  defense={scoreSummary.defense}
+                  culture={scoreSummary.culture}
+                  onClose={() => window.location.href = '/stats'}
+              />
+          )}
         </div>
-
-        {showModal && scoreSummary && (
-            <ReflectionModal
-                total={scoreSummary.total}
-                offense={scoreSummary.offense}
-                defense={scoreSummary.defense}
-                culture={scoreSummary.culture}
-                onClose={() => window.location.href = '/stats'}
-            />
-        )}
       </div>
-    );
+  );
 }
 
 export default ReflectionPage;
-
