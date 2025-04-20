@@ -151,8 +151,8 @@ function StatsPage() {
             )}
 
             <div className="mt-6 flex justify-between gap-4">
-                <button onClick={() => navigate('/')} className="flex-1 bg-gray-700 text-white px-6 py-3 rounded hover:bg-gray-600">Back Home</button>
                 <button onClick={() => navigate('/reflect')} className="flex-1 bg-indigo-700 text-white px-6 py-3 rounded hover:bg-indigo-600">New Reflection</button>
+                <button onClick={() => navigate('/')} className="flex-1 bg-gray-700 text-white px-6 py-3 rounded hover:bg-gray-600">Back Home</button>
             </div>
 
             <div className="mt-6">
