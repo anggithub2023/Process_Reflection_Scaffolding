@@ -5,13 +5,32 @@ function HomePage() {
     const navigate = useNavigate();
 
     return (
-        <div className="min-h-screen bg-gray-100 flex flex-col items-center justify-center p-6">
-            <h1 className="text-4xl font-extrabold mb-10 text-center text-indigo-800">Welcome to Process Reflection</h1>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 w-full max-w-md">
-                <button onClick={() => navigate('/reflect')} className="bg-indigo-600 text-white p-4 rounded-lg text-lg font-semibold hover:bg-indigo-500">📝 Reflection</button>
-                <button onClick={() => navigate('/stats')} className="bg-green-600 text-white p-4 rounded-lg text-lg font-semibold hover:bg-green-500">📊 Player Stats</button>
-                <button onClick={() => navigate('/workouts')} className="bg-yellow-500 text-white p-4 rounded-lg text-lg font-semibold hover:bg-yellow-400">💪 Workouts</button>
-                <button onClick={() => navigate('/videos')} className="bg-red-500 text-white p-4 rounded-lg text-lg font-semibold hover:bg-red-400">🎥 Videos</button>
+        <div className="min-h-screen bg-gradient-to-br from-indigo-50 to-white p-6 flex flex-col items-center">
+            <h1 className="text-4xl sm:text-5xl font-extrabold text-indigo-700 mb-4">Process Reflection</h1>
+            <p className="text-center text-gray-600 mb-10 max-w-md">
+                A focused tool for players to reflect, improve, and track their journey on and off the court.
+            </p>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 w-full max-w-xl">
+                <div onClick={() => navigate('/reflect')} className="cursor-pointer bg-white p-6 rounded-xl shadow-lg hover:shadow-indigo-200 hover:scale-105 transition">
+                    <h2 className="text-xl font-semibold text-indigo-700 mb-1">📝 Reflection</h2>
+                    <p className="text-gray-600 text-sm">Answer key questions after every session or game to sharpen your mindset.</p>
+                </div>
+
+                <div onClick={() => navigate('/stats')} className="cursor-pointer bg-white p-6 rounded-xl shadow-lg hover:shadow-green-200 hover:scale-105 transition">
+                    <h2 className="text-xl font-semibold text-green-700 mb-1">📊 Player Stats</h2>
+                    <p className="text-gray-600 text-sm">Track your game-by-game performance, see averages, and download your progress.</p>
+                </div>
+
+                <div onClick={() => navigate('/workouts')} className="cursor-pointer bg-white p-6 rounded-xl shadow-lg hover:shadow-yellow-200 hover:scale-105 transition">
+                    <h2 className="text-xl font-semibold text-yellow-600 mb-1">💪 Workouts</h2>
+                    <p className="text-gray-600 text-sm">Browse workouts or training plans that align with your goals.</p>
+                </div>
+
+                <div onClick={() => navigate('/videos')} className="cursor-pointer bg-white p-6 rounded-xl shadow-lg hover:shadow-red-200 hover:scale-105 transition">
+                    <h2 className="text-xl font-semibold text-red-600 mb-1">🎥 Videos</h2>
+                    <p className="text-gray-600 text-sm">Watch practice footage, breakdowns, or motivational clips.</p>
+                </div>
             </div>
         </div>
     );
