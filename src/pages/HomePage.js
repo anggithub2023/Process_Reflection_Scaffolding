@@ -25,16 +25,23 @@ function HomePage() {
                     <p className="text-gray-600 dark:text-gray-300 text-sm">Track your game-by-game performance, see averages, and download your progress.</p>
                 </div>
 
-                <div onClick={() => navigate('/workouts')} className="cursor-pointer bg-white bg-opacity-90 backdrop-blur-md p-6 rounded-xl shadow-lg hover:shadow-yellow-300 hover:scale-105 transform transition duration-300">
+                <div onClick={() => navigate('/workouts')} className="cursor-pointer bg-white dark:bg-gray-800 bg-opacity-90 backdrop-blur-md p-6 rounded-xl shadow-lg hover:shadow-yellow-300 hover:scale-105 transform transition duration-300">
                     <h2 className="text-xl font-semibold text-yellow-600 mb-1">💪 Workouts</h2>
-                    <p className="text-gray-600 text-sm">Browse workouts or training plans that align with your goals.</p>
+                    <p className="text-gray-600 dark:text-gray-300 text-sm">Browse workouts or training plans that align with your goals.</p>
                 </div>
 
-                <div onClick={() => navigate('/videos')} className="cursor-pointer bg-white bg-opacity-90 backdrop-blur-md p-6 rounded-xl shadow-lg hover:shadow-red-300 hover:scale-105 transform transition duration-300">
+                <div onClick={() => navigate('/videos')} className="cursor-pointer bg-white dark:bg-gray-800 bg-opacity-90 backdrop-blur-md p-6 rounded-xl shadow-lg hover:shadow-red-300 hover:scale-105 transform transition duration-300">
                     <h2 className="text-xl font-semibold text-red-600 mb-1">🎥 Videos</h2>
-                    <p className="text-gray-600 text-sm">Watch practice footage, breakdowns, or motivational clips.</p>
+                    <p className="text-gray-600 dark:text-gray-300 text-sm">Watch practice footage, breakdowns, or motivational clips.</p>
                 </div>
             </div>
+
+            <footer className="mt-12 text-center text-xs text-gray-500 dark:text-gray-400 px-4 pb-6">
+                © {new Date().getFullYear()} Process Reflection™ by Alex Ng. All rights reserved.
+                This platform, concept, design, and workflow are the original intellectual property of the creator.
+                Unauthorized reproduction, distribution, reverse engineering, or imitation without written permission is strictly prohibited.
+                Process Reflection™ is a trademark under development. All content is protected under U.S. copyright law.
+            </footer>
         </div>
     );
 }
