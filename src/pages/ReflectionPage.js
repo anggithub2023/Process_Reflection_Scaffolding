@@ -114,7 +114,7 @@ function ReflectionPage() {
         <div className="max-w-xl mx-auto p-4">
           <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-center text-gray-800 tracking-wide uppercase mb-8">PROCESS REFLECTION</h1>
           <SectionBlock
-              title={<><span className="text-black dark:text-white">$1</span> <span className="text-sm text-gray-500">(5 minimum questions required)</span></>}
+              title={<>Offense <span className="text-sm text-gray-500">(5 required)</span></>}
               questions={QUESTIONS.offense}
               sectionKey="offense"
               answers={answers}
@@ -122,7 +122,7 @@ function ReflectionPage() {
               bgClass="from-orange-50 to-orange-100 dark:from-orange-900 dark:to-orange-800 bg-opacity-90 backdrop-blur-md shadow-lg rounded-xl p-4"
           />
           <SectionBlock
-              title="Defense (5 minimum questions required)"
+              title={<>Defense <span className="text-sm text-gray-500">(5 required)</span></>}
               questions={QUESTIONS.defense}
               sectionKey="defense"
               answers={answers}
@@ -130,7 +130,7 @@ function ReflectionPage() {
               bgClass="from-blue-50 to-blue-100 dark:from-blue-900 dark:to-blue-800 bg-opacity-90 backdrop-blur-md shadow-lg rounded-xl p-4"
           />
           <SectionBlock
-              title="Team Identity & Culture (5 minimum questions required)"
+              title={<>Team Identity & Culture <span className="text-sm text-gray-500">(5 required)</span></>}
               questions={QUESTIONS.teamIdentity}
               sectionKey="teamIdentity"
               answers={answers}
