@@ -1,6 +1,6 @@
 import React from 'react';
 
-function WorkoutsPage() {
+function Workouts() {
     return (
         <div className="min-h-screen bg-yellow-50 flex flex-col items-center justify-center p-6">
             <h1 className="text-3xl font-extrabold text-yellow-700 mb-4">🏋️‍♂️ Workouts</h1>
@@ -12,4 +12,4 @@ function WorkoutsPage() {
     );
 }
 
-export default WorkoutsPage;
+export default Workouts;
