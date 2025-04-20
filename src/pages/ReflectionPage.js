@@ -101,7 +101,7 @@ function ReflectionPage() {
               sectionKey="offense"
               answers={answers}
               handleAnswer={handleAnswer}
-              bgClass="from-orange-50 to-orange-100 dark:from-orange-900 dark:to-orange-800"
+              bgClass="from-orange-50 to-orange-100 dark:from-orange-900 dark:to-orange-800 bg-opacity-90 backdrop-blur-md shadow-lg rounded-xl p-4"
           />
           <SectionBlock
               title="Defense"
@@ -109,7 +109,7 @@ function ReflectionPage() {
               sectionKey="defense"
               answers={answers}
               handleAnswer={handleAnswer}
-              bgClass="from-blue-50 to-blue-100 dark:from-blue-900 dark:to-blue-800"
+              bgClass="from-blue-50 to-blue-100 dark:from-blue-900 dark:to-blue-800 bg-opacity-90 backdrop-blur-md shadow-lg rounded-xl p-4"
           />
           <SectionBlock
               title="Team Identity & Culture"
@@ -117,7 +117,7 @@ function ReflectionPage() {
               sectionKey="teamIdentity"
               answers={answers}
               handleAnswer={handleAnswer}
-              bgClass="from-purple-50 to-purple-100 dark:from-purple-900 dark:to-purple-800"
+              bgClass="from-purple-50 to-purple-100 dark:from-purple-900 dark:to-purple-800 bg-opacity-90 backdrop-blur-md shadow-lg rounded-xl p-4"
           />
           <div className="mt-6 flex justify-between gap-4">
             <button onClick={handleSubmit} className="flex-1 bg-indigo-700 text-white px-6 py-3 rounded hover:bg-indigo-600">Submit Reflection</button>
