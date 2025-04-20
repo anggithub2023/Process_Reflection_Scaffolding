@@ -21,10 +21,10 @@ function HomePage() {
             </p>
 
             <div className="grid gap-6 w-full max-w-4xl px-4 sm:px-6 grid-cols-[repeat(auto-fit,_minmax(240px,_1fr))]">
-                <div onClick={() => navigate('/reflect')} className="cursor-pointer bg-white dark:bg-gray-800 bg-opacity-90 backdrop-blur-md p-6 rounded-xl shadow-lg hover:shadow-indigo-300 hover:scale-105 transform transition duration-300">
+                <div onClick={() => navigate('/reflect')} className="group cursor-pointer bg-white dark:bg-gray-800 bg-opacity-90 backdrop-blur-md p-6 rounded-xl shadow-lg hover:shadow-indigo-300 hover:scale-105 transform transition duration-300">
                     <h2 className="text-xl font-semibold text-center text-indigo-700 mb-1">
             <span className="flex items-center justify-center gap-2">
-              <MdOutlineEditNote className="text-2xl" /> Reflection
+              <MdOutlineEditNote className="text-3xl sm:text-4xl transition-transform duration-200 group-hover:scale-110" /> Reflection
             </span>
                     </h2>
                     <p className="text-gray-600 dark:text-gray-300 text-sm">Complete your daily reflection to stay focused on the process and track progress over time.</p>
@@ -32,7 +32,7 @@ function HomePage() {
 
                 <div onClick={() => navigate('/readiness')} className="cursor-pointer bg-white dark:bg-gray-800 bg-opacity-90 backdrop-blur-md p-6 rounded-xl shadow-lg hover:shadow-purple-300 hover:scale-105 transform transition duration-300">
                     <h2 className="flex items-center justify-center gap-2 text-xl font-semibold text-purple-700 mb-1">
-                        <FaBrain className="text-2xl" /> Readiness
+                        <FaBrain className="text-3xl sm:text-4xl transition-transform duration-200 group-hover:scale-110" /> Readiness
                     </h2>
                     <p className="text-gray-600 dark:text-gray-300 text-sm">Check in on your mental and physical readiness before each session — including mindset, recovery, and injury prevention insights.</p>
                 </div>
@@ -40,7 +40,7 @@ function HomePage() {
                 <div onClick={() => navigate('/stats')} className="cursor-pointer bg-white dark:bg-gray-800 bg-opacity-90 backdrop-blur-md p-6 rounded-xl shadow-lg hover:shadow-green-300 hover:scale-105 transform transition duration-300">
                     <h2 className="text-xl font-semibold text-center text-green-700 mb-1">
             <span className="flex items-center justify-center gap-2">
-              <FaChartBar className="text-2xl" /> Player Stats
+              <FaChartBar className="text-3xl sm:text-4xl transition-transform duration-200 group-hover:scale-110" /> Player Stats
             </span>
                     </h2>
                     <p className="text-gray-600 dark:text-gray-300 text-sm">Track your game-by-game performance, see averages, and download your progress.</p>
@@ -49,7 +49,7 @@ function HomePage() {
                 <div onClick={() => navigate('/workouts')} className="cursor-pointer bg-white dark:bg-gray-800 bg-opacity-90 backdrop-blur-md p-6 rounded-xl shadow-lg hover:shadow-yellow-300 hover:scale-105 transform transition duration-300">
                     <h2 className="text-xl font-semibold text-center text-yellow-600 mb-1">
             <span className="flex items-center justify-center gap-2">
-              <GiMuscleUp className="text-2xl" /> Workouts
+              <GiMuscleUp className="text-3xl sm:text-4xl transition-transform duration-200 group-hover:scale-110" /> Workouts
             </span>
                     </h2>
                     <p className="text-gray-600 dark:text-gray-300 text-sm">Browse workouts or training plans that align with your goals.</p>
@@ -58,7 +58,7 @@ function HomePage() {
                 <div onClick={() => navigate('/videos')} className="cursor-pointer bg-white dark:bg-gray-800 bg-opacity-90 backdrop-blur-md p-6 rounded-xl shadow-lg hover:shadow-red-300 hover:scale-105 transform transition duration-300">
                     <h2 className="text-xl font-semibold text-center text-red-600 mb-1">
             <span className="flex items-center justify-center gap-2">
-              <FaVideo className="text-2xl" /> Videos
+              <FaVideo className="text-3xl sm:text-4xl transition-transform duration-200 group-hover:scale-110" /> Videos
             </span>
                     </h2>
                     <p className="text-gray-600 dark:text-gray-300 text-sm">Watch practice footage, breakdowns, or motivational clips.</p>
