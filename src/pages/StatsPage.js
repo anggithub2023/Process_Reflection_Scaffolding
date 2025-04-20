@@ -50,12 +50,7 @@ function StatsPage() {
         <h2 className="text-2xl font-bold text-gray-800 mb-4">Player Stats</h2>
 
         <label className="block text-gray-700">Date of Game</label>
-        <input
-            type="date"
-            className="w-full border px-4 py-2 rounded"
-            value={newStat.date}
-            onChange={e => setNewStat({ ...newStat, date: e.target.value })}
-        />
+        <input type="date" className="w-full border px-4 py-2 rounded" value={newStat.date} onChange={e => setNewStat({ ...newStat, date: e.target.value })} />
         <input className="w-full border px-4 py-2 rounded" placeholder="Opponent Team Name" value={newStat.opponent} onChange={e => setNewStat({ ...newStat, opponent: e.target.value })} />
         <input type="number" className="w-full border px-4 py-2 rounded" placeholder="Points" value={newStat.points} onChange={e => setNewStat({ ...newStat, points: e.target.value })} />
         <input type="number" className="w-full border px-4 py-2 rounded" placeholder="Assists" value={newStat.assists} onChange={e => setNewStat({ ...newStat, assists: e.target.value })} />
@@ -103,31 +98,41 @@ function StatsPage() {
                 </table>
               </div>
 
-              <div className="mt-6">
-                <h3 className="font-bold mb-2">Averages:</h3>
-                <ul className="list-disc list-inside">
-                  <li>Points: {calculateAverage('points')}</li>
-                  <li>Assists: {calculateAverage('assists')}</li>
-                  <li>Rebounds: {calculateAverage('rebounds')}</li>
-                  <li>Steals: {calculateAverage('steals')}</li>
-                  <li>Turnovers: {calculateAverage('turnovers')}</li>
-                  <li>Free Throws: {calculateAverage('freeThrows')}</li>
-                  <li>Minutes: {calculateAverage('minutes')}</li>
-                </ul>
-              </div>
-            </div>
-        )}
+              <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <h3 className="font-bold mb-2">Averages:</h3>
+                  <ul className="list-disc list-inside">
+                    <li>Points: {calculateAverage('points')}</li>
+                    <li>Assists: {calculateAverage('assists')}</li>
+                    <li>Rebounds: {calculateAverage('rebounds')}</li>
+                    <li>Steals: {calculateAverage('steals')}</li>
+                    <li>Turnovers: {calculateAverage('turnovers')}</li>
+                    <li>Free Throws: {calculateAverage('freeThrows')}</li>
+                    <li>Minutes: {calculateAverage('minutes')}</li>
+                  </ul>
+                </div>
+                <div>
+                  <h3 className="font-bold mb-2">Reflection Score History</h3>
+                  <ul className="space-y-2">
+                    {history.map((entry, idx) => {
+                      const score = entry.total;
+                      let badgeColor = "bg-gray-300";
+                      if (score >= 85) badgeColor = "bg-green-500 text-white";
+                      else if (score >= 70) badgeColor = "bg-yellow-400 text-black";
+                      else badgeColor = "bg-red-500 text-white";
 
-        {history.length > 0 && (
-            <div className="mt-8">
-              <h3 className="font-bold mb-2">Reflection Score History</h3>
-              <ul className="list-disc list-inside space-y-1">
-                {history.map((entry, idx) => (
-                    <li key={idx}>
-                      {new Date(entry.timestamp).toLocaleDateString()} – Score: {entry.total}%
-                    </li>
-                ))}
-              </ul>
+                      return (
+                          <li key={idx} className="flex items-center justify-between">
+                            <span>{new Date(entry.timestamp).toLocaleDateString()}</span>
+                            <span className={`text-sm px-2 py-1 rounded ${badgeColor}`}>
+                        {score}%
+                      </span>
+                          </li>
+                      );
+                    })}
+                  </ul>
+                </div>
+              </div>
             </div>
         )}
 
