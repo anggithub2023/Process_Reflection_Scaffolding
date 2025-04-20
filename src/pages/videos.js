@@ -1,6 +1,6 @@
 import React from 'react';
 
-function VideosPage() {
+function Videos() {
     return (
         <div className="min-h-screen bg-red-50 flex flex-col items-center justify-center p-6">
             <h1 className="text-3xl font-extrabold text-red-600 mb-4">🎥 Videos</h1>
@@ -12,4 +12,4 @@ function VideosPage() {
     );
 }
 
-export default VideosPage;
+export default Videos;
