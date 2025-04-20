@@ -1,8 +1,9 @@
 // tailwind.config.js
 module.exports = {
   content: [
-    "./src/**/*.{js,jsx,ts,tsx}", // Make sure your paths are correct
+    "./src/**/*.{js,jsx,ts,tsx}", // Adjust this if your folder structure differs
   ],
+  darkMode: 'class', // ✅ Enables class-based dark mode (you can use 'media' instead if preferred)
   theme: {
     extend: {
       keyframes: {
