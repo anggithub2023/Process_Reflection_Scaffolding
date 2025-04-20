@@ -9,7 +9,9 @@ const QUESTIONS = {
     "Did I take smart shots — ones we practice?",
     "Did I make the 'one more' pass when a teammate was more open?",
     "Did I keep proper spacing and timing in our offense?",
-    "Did I stay patient and allow plays to develop before rushing?"
+    "Did I stay patient and allow plays to develop before rushing?",
+    "Did I handle the ball confidently under pressure?",
+    "Did I create good scoring opportunities for my teammates?"
   ],
   defense: [
     "Did I stay in a stance and contest every shot?",
@@ -17,7 +19,9 @@ const QUESTIONS = {
     "Did I help on defense and recover to my man?",
     "Did I box out and go for every rebound?",
     "Did I close out under control and avoid fouling shooters?",
-    "Did I maintain effort on every defensive possession?"
+    "Did I maintain effort on every defensive possession?",
+    "Did I apply ball pressure without fouling?",
+    "Did I force tough shots or turnovers by sticking to our defensive principles?"
   ],
   teamIdentity: [
     "Was I a great teammate — vocal, positive, and unselfish?",
@@ -25,7 +29,9 @@ const QUESTIONS = {
     "Did I give full effort — including hustle plays, box-outs, and deflections?",
     "Did I avoid bad turnovers, such as lazy passes or over-dribbling?",
     "Did I support my teammates on and off the court?",
-    "Did I hold myself accountable to our team principles?"
+    "Did I hold myself accountable to our team principles?",
+    "Did I stay locked in and focused even when off the ball or on the bench?",
+    "Did I bring positive energy to the team throughout the session?"
   ]
 };
 
@@ -53,9 +59,10 @@ function ReflectionPage() {
   };
 
   const handleSubmit = () => {
-    const allAnswered = Object.keys(QUESTIONS).every(section =>
-        QUESTIONS[section].every((_, idx) => answers[`${section}-${idx}`])
-    );
+    const allAnswered = Object.keys(QUESTIONS).every(section => {
+      const answeredCount = QUESTIONS[section].filter((_, idx) => answers[`${section}-${idx}`]).length;
+      return answeredCount >= 5;
+    });
 
     if (!allAnswered) {
       const allKeys = Object.keys(QUESTIONS).flatMap(section =>
@@ -70,17 +77,23 @@ function ReflectionPage() {
       return;
     }
 
-    const offense = QUESTIONS.offense.reduce((acc, _, i) => acc + scoreValue(answers[`offense-${i}`]), 0);
-    const defense = QUESTIONS.defense.reduce((acc, _, i) => acc + scoreValue(answers[`defense-${i}`]), 0);
-    const culture = QUESTIONS.teamIdentity.reduce((acc, _, i) => acc + scoreValue(answers[`teamIdentity-${i}`]), 0);
-    const total = Math.round(offense + defense + culture);
+    const offenseRaw = QUESTIONS.offense.map((_, i) => scoreValue(answers[`offense-${i}`])).filter(v => v !== null);
+    const offense = offenseRaw.slice(0, 5).reduce((acc, val) => acc + val, 0);
+    const offenseTotal = offenseRaw.reduce((acc, val) => acc + val, 0);
+    const defenseRaw = QUESTIONS.defense.map((_, i) => scoreValue(answers[`defense-${i}`])).filter(v => v !== null);
+    const defense = defenseRaw.slice(0, 5).reduce((acc, val) => acc + val, 0);
+    const defenseTotal = defenseRaw.reduce((acc, val) => acc + val, 0);
+    const cultureRaw = QUESTIONS.teamIdentity.map((_, i) => scoreValue(answers[`teamIdentity-${i}`])).filter(v => v !== null);
+    const culture = cultureRaw.slice(0, 5).reduce((acc, val) => acc + val, 0);
+    const cultureTotal = cultureRaw.reduce((acc, val) => acc + val, 0);
+    const total = Math.round((offense + defense + culture) / 3);
 
     const summary = {
       timestamp: new Date().toISOString(),
       total,
-      offense: Math.round(offense),
-      defense: Math.round(defense),
-      teamIdentity: Math.round(culture),
+      offense: Math.round(offenseTotal),
+      defense: Math.round(defenseTotal),
+      teamIdentity: Math.round(cultureTotal),
       answers: { ...answers }
     };
 
@@ -95,9 +108,9 @@ function ReflectionPage() {
       <div class='bg-white dark:bg-gray-800 text-gray-900 dark:text-white p-6 rounded-lg shadow-lg max-w-sm w-full text-center'>
         <h2 class='text-xl font-bold mb-2'>${icon} Great Job Reflecting</h2>
         <p class='mb-2'>Total Score: ${total}</p>
-        <p class='mb-1 text-sm'>Offense: ${Math.round(offense)}</p>
-        <p class='mb-1 text-sm'>Defense: ${Math.round(defense)}</p>
-        <p class='mb-4 text-sm'>Team Identity: ${Math.round(culture)}</p>
+        <p class='mb-1 text-sm'>Offense: ${Math.round(offenseTotal)}</p>
+        <p class='mb-1 text-sm'>Defense: ${Math.round(defenseTotal)}</p>
+        <p class='mb-4 text-sm'>Team Identity: ${Math.round(cultureTotal)}</p>
         <p class='mb-4 font-medium'>Champions do the little things.</p>
         <button id='confirmModalBtn' class='bg-indigo-600 text-white px-4 py-2 rounded hover:bg-indigo-500'>OK</button>
       </div>
