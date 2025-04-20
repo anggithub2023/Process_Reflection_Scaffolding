@@ -5,7 +5,7 @@ function HomePage() {
     const navigate = useNavigate();
 
     return (
-        <div className="min-h-screen bg-gradient-to-br from-indigo-50 to-white p-6 flex flex-col items-center">
+        <div className="min-h-screen bg-gradient-to-br from-indigo-50 to-white p-6 flex flex-col items-center overflow-x-hidden overflow-y-auto">
             <h1 className="text-4xl sm:text-5xl font-extrabold text-indigo-700 mb-4">Process Reflection</h1>
             <p className="text-center text-gray-600 mb-10 max-w-md">
                 A focused tool for players to reflect, improve, and track their journey on and off the court.
