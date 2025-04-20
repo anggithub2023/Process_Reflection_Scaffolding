@@ -1,6 +1,6 @@
 import React from 'react';
 import { FaBrain, FaChartBar, FaVideo } from 'react-icons/fa';
-import { GiBasketballBall } from 'react-icons/gi';
+import { GiLevelEndFlag } from 'react-icons/gi';
 import { MdOutlineEditNote } from 'react-icons/md';
 import { GiMuscleUp } from 'react-icons/gi';
 import { useNavigate } from 'react-router-dom';
@@ -12,7 +12,7 @@ function HomePage() {
         <div className="min-h-screen bg-gradient-to-br from-indigo-50 to-white dark:from-gray-900 dark:to-gray-800 flex flex-col items-center overflow-x-hidden overflow-y-auto">
             <header className="w-full text-center py-6 bg-white dark:bg-gray-900 bg-opacity-80 shadow-md sticky top-0 z-50">
                 <h1 className="flex items-center justify-center gap-2 text-3xl sm:text-4xl font-bold text-indigo-700 dark:text-indigo-200 tracking-tight">
-                    <GiBasketballBall className="text-white bg-indigo-500 rounded-full p-1 text-4xl transition-transform duration-200 group-hover:scale-110" /> Process Reflection
+                    <GiLevelEndFlag className="text-white bg-indigo-500 rounded-full p-1 text-4xl transition-transform duration-200 group-hover:scale-110" /> Elevate: Train, Reflect, Compete
                 </h1>
             </header>
 
