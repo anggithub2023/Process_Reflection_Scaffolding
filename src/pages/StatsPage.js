@@ -68,9 +68,10 @@ function StatsPage() {
                 <div className="mt-6">
                     <h3 className="font-bold mb-2">Games Entered:</h3>
                     <StatsTable gameStats={gameStats} tableRef={tableRef} />
-                    <AveragesPanel gameStats={gameStats} history={history} calculateAverage={calculateAverage} />
                 </div>
             )}
+
+            <AveragesPanel gameStats={gameStats} history={history} calculateAverage={calculateAverage} />
 
             <div className="mt-6 flex justify-between gap-4">
                 <button onClick={() => navigate('/reflect')} className="flex-1 bg-indigo-700 text-white px-6 py-3 rounded hover:bg-indigo-600">New Reflection</button>
