@@ -111,7 +111,7 @@ function ReflectionPage() {
         />
         <div className="mt-6 flex justify-between gap-4">
           <button onClick={handleSubmit} className="flex-1 bg-indigo-700 text-white px-6 py-3 rounded hover:bg-indigo-600">Submit Reflection</button>
-          <button onClick={() => window.location.href='/stats'} className="flex-1 bg-green-600 text-white px-6 py-3 rounded hover:bg-green-500">Player Stats</button>
+          <button onClick={() => window.location.href='/'} className="flex-1 bg-green-600 text-white px-6 py-3 rounded hover:bg-green-500">Back Home</button>
         </div>
       </div>
   );
