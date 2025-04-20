@@ -10,9 +10,7 @@ function HomePage() {
                 <h1 className="text-3xl sm:text-4xl font-bold text-indigo-700 tracking-tight">🏀 Process Reflection</h1>
             </header>
 
-            <p className="text-center text-gray-600 mt-6 mb-10 max-w-md px-4">
-                A focused tool for players to reflect, improve, and track their journey on and off the court.
-            </p>
+            <p className="text-center text-indigo-700 font-medium mt-6 mb-10 max-w-md px-4 tracking-wide">$1</p>
 
             <div className="grid gap-6 w-full max-w-4xl px-4 sm:px-6 grid-cols-[repeat(auto-fit,_minmax(240px,_1fr))]">
                 <div onClick={() => navigate('/reflect')} className="cursor-pointer bg-white bg-opacity-90 backdrop-blur-md p-6 rounded-xl shadow-lg hover:shadow-indigo-300 hover:scale-105 transform transition duration-300">
