@@ -79,21 +79,21 @@ function ReflectionPage() {
 
     const offenseRaw = QUESTIONS.offense.map((_, i) => scoreValue(answers[`offense-${i}`])).filter(v => v !== null);
     const offense = offenseRaw.slice(0, 5).reduce((acc, val) => acc + val, 0);
-    const offenseTotal = offenseRaw.reduce((acc, val) => acc + val, 0);
+    const offensePct = (offense / 10) * 100;
     const defenseRaw = QUESTIONS.defense.map((_, i) => scoreValue(answers[`defense-${i}`])).filter(v => v !== null);
     const defense = defenseRaw.slice(0, 5).reduce((acc, val) => acc + val, 0);
-    const defenseTotal = defenseRaw.reduce((acc, val) => acc + val, 0);
+    const defensePct = (defense / 10) * 100;
     const cultureRaw = QUESTIONS.teamIdentity.map((_, i) => scoreValue(answers[`teamIdentity-${i}`])).filter(v => v !== null);
     const culture = cultureRaw.slice(0, 5).reduce((acc, val) => acc + val, 0);
-    const cultureTotal = cultureRaw.reduce((acc, val) => acc + val, 0);
-    const total = Math.round((offense + defense + culture) / 3);
+    const culturePct = (culture / 10) * 100;
+    const total = Math.round((offensePct + defensePct + culturePct) / 3);
 
     const summary = {
       timestamp: new Date().toISOString(),
       total,
-      offense: Math.round(offenseTotal),
-      defense: Math.round(defenseTotal),
-      teamIdentity: Math.round(cultureTotal),
+      offense: Math.round(offensePct),
+      defense: Math.round(defensePct),
+      teamIdentity: Math.round(culturePct),
       answers: { ...answers }
     };
 
@@ -107,10 +107,10 @@ function ReflectionPage() {
     modal.innerHTML = `
       <div class='bg-white dark:bg-gray-800 text-gray-900 dark:text-white p-6 rounded-lg shadow-lg max-w-sm w-full text-center'>
         <h2 class='text-xl font-bold mb-2'>${icon} Great Job Reflecting</h2>
-        <p class='mb-2'>Total Score: ${total}</p>
-        <p class='mb-1 text-sm'>Offense: ${Math.round(offenseTotal)}</p>
-        <p class='mb-1 text-sm'>Defense: ${Math.round(defenseTotal)}</p>
-        <p class='mb-4 text-sm'>Team Identity: ${Math.round(cultureTotal)}</p>
+        <p class='mb-2'>Total Score: ${total}%</p>
+        <p class='mb-1 text-sm'>Offense: ${Math.round(offensePct)}%</p>
+        <p class='mb-1 text-sm'>Defense: ${Math.round(defensePct)}%</p>
+        <p class='mb-4 text-sm'>Team Identity: ${Math.round(culturePct)}%</p>
         <p class='mb-4 font-medium'>Champions do the little things.</p>
         <button id='confirmModalBtn' class='bg-indigo-600 text-white px-4 py-2 rounded hover:bg-indigo-500'>OK</button>
       </div>
@@ -126,7 +126,7 @@ function ReflectionPage() {
         <div className="max-w-xl mx-auto p-4">
           <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-center text-gray-800 tracking-wide uppercase mb-8">PROCESS REFLECTION</h1>
           <SectionBlock
-              title="Offense"
+              title="Offense (5 minimum questions required)"
               questions={QUESTIONS.offense}
               sectionKey="offense"
               answers={answers}
@@ -134,7 +134,7 @@ function ReflectionPage() {
               bgClass="from-orange-50 to-orange-100 dark:from-orange-900 dark:to-orange-800 bg-opacity-90 backdrop-blur-md shadow-lg rounded-xl p-4"
           />
           <SectionBlock
-              title="Defense"
+              title="Defense (5 minimum questions required)"
               questions={QUESTIONS.defense}
               sectionKey="defense"
               answers={answers}
@@ -142,7 +142,7 @@ function ReflectionPage() {
               bgClass="from-blue-50 to-blue-100 dark:from-blue-900 dark:to-blue-800 bg-opacity-90 backdrop-blur-md shadow-lg rounded-xl p-4"
           />
           <SectionBlock
-              title="Team Identity & Culture"
+              title="Team Identity & Culture (5 minimum questions required)"
               questions={QUESTIONS.teamIdentity}
               sectionKey="teamIdentity"
               answers={answers}
