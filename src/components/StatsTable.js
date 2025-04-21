@@ -23,7 +23,7 @@ function StatsTable({ gameStats, tableRef }) {
                     {gameStats.map((gs, index) => (
                         <tr key={index} className="border-t border-gray-200 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-700">
                             <td className="p-2 text-center$1">{gs.date ? new Date(gs.date).toLocaleDateString(undefined, { month: 'numeric', day: 'numeric', year: '2-digit' }) : ''}</td>
-                            <td className="truncate max-w-[80px] text-center" title={gs.opponent}>{gs.opponent}</td>
+                            <td className="p-3 truncate max-w-[80px]">{gs.opponent}</td>
                             <td className="p-3">{gs.points}</td>
                             <td className="p-3">{gs.assists}</td>
                             <td className="p-3">{gs.rebounds}</td>
