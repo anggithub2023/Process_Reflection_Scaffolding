@@ -2,33 +2,35 @@ import React from 'react';
 
 function StatsTable({ gameStats, tableRef }) {
     return (
-        <div className="mt-6">
-            <h3 className="font-bold mb-2">Games Entered:</h3>
+        <div className="mt-6 bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-md border border-gray-200 dark:border-gray-700">
+            <h3 className="text-2xl font-semibold text-indigo-700 dark:text-indigo-300 text-center mb-4">Game Stats</h3>
             <div ref={tableRef} className="overflow-x-auto">
-                <table className="min-w-full text-sm text-left border">
-                    <thead className="bg-gray-100">
+                <table className="w-full table-fixed text-sm text-left border border-gray-200 dark:border-gray-700">
+                    <thead className="bg-gray-100 dark:bg-gray-700 text-gray-900 dark:text-gray-100">
                     <tr>
-                        <th className="p-2 font-semibold">Date</th>
-                        <th className="p-2 font-semibold">PTS</th>
-                        <th className="p-2 font-semibold">AST</th>
-                        <th className="p-2 font-semibold">REB</th>
-                        <th className="p-2 font-semibold">STL</th>
-                        <th className="p-2 font-semibold">TOV</th>
-                        <th className="p-2 font-semibold">FT</th>
-                        <th className="p-2 font-semibold">MIN</th>
+                        <th className="p-2 font-semibold w-[48px] text-center">$1</th>
+                        <th className="p-3 font-semibold">Team</th>
+                        <th className="p-3 font-semibold">PTS</th>
+                        <th className="p-3 font-semibold">AST</th>
+                        <th className="p-3 font-semibold">REB</th>
+                        <th className="p-3 font-semibold">STL</th>
+                        <th className="p-3 font-semibold">TOV</th>
+                        <th className="p-3 font-semibold">FT</th>
+                        <th className="p-3 font-semibold">MIN</th>
                     </tr>
                     </thead>
                     <tbody>
                     {gameStats.map((gs, index) => (
-                        <tr key={index} className="border-t">
-                            <td className="p-2">{gs.date ? new Date(gs.date).toLocaleDateString(undefined, { month: 'numeric', day: 'numeric', year: '2-digit' }) : ''}</td>
-                            <td className="p-2">{gs.points}</td>
-                            <td className="p-2">{gs.assists}</td>
-                            <td className="p-2">{gs.rebounds}</td>
-                            <td className="p-2">{gs.steals}</td>
-                            <td className="p-2">{gs.turnovers}</td>
-                            <td className="p-2">{gs.freeThrows}</td>
-                            <td className="p-2">{gs.minutes}</td>
+                        <tr key={index} className="border-t border-gray-200 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-700">
+                            <td className="p-2 text-center$1">{gs.date ? new Date(gs.date).toLocaleDateString(undefined, { month: 'numeric', day: 'numeric', year: '2-digit' }) : ''}</td>
+                            <td className="truncate max-w-[80px] text-center" title={gs.opponent}>{gs.opponent}</td>
+                            <td className="p-3">{gs.points}</td>
+                            <td className="p-3">{gs.assists}</td>
+                            <td className="p-3">{gs.rebounds}</td>
+                            <td className="p-3">{gs.steals}</td>
+                            <td className="p-3">{gs.turnovers}</td>
+                            <td className="p-3">{gs.freeThrows}</td>
+                            <td className="p-3">{gs.minutes}</td>
                         </tr>
                     ))}
                     </tbody>
