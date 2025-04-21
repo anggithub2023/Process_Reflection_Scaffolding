@@ -61,7 +61,7 @@ function StatsPage() {
 
     return (
         <div className="max-w-xl mx-auto text-left p-4">
-            <h2 className="text-2xl sm:text-3xl font-bold text-indigo-700 dark:text-indigo-300 mb-6 tracking-tight">Track greatness. Start logging your stats.</h2>
+            <h2 className="text-3xl sm:text-4xl font-bold text-indigo-700 dark:text-indigo-200 mb-6 tracking-tight text-center">Track greatness. Start logging your stats.</h2>
 
             <StatForm newStat={newStat} setNewStat={setNewStat} handleAddStat={handleAddStat} />
 
@@ -73,8 +73,7 @@ function StatsPage() {
 
             <AveragesPanel gameStats={gameStats} history={history} calculateAverage={calculateAverage} />
 
-            <div className="mt-6 flex justify-between gap-4">
-                <button onClick={() => navigate('/reflect')} className="flex-1 bg-indigo-700 text-white px-6 py-3 rounded hover:bg-indigo-600">New Reflection</button>
+            <div className="mt-6 flex justify-end">
                 <button onClick={() => navigate('/')} className="flex-1 bg-gray-700 text-white px-6 py-3 rounded hover:bg-gray-600">Back Home</button>
             </div>
 
