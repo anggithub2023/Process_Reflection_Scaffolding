@@ -73,12 +73,11 @@ function StatsPage() {
 
             <AveragesPanel gameStats={gameStats} history={history} calculateAverage={calculateAverage} />
 
-            <div className="mt-6 flex justify-end">
-                <button onClick={() => navigate('/')} className="flex-1 bg-gray-700 text-white px-6 py-3 rounded hover:bg-gray-600">Back Home</button>
-            </div>
-
-            <div className="mt-6">
-                <DownloadButton gameStats={gameStats} history={history} calculateAverage={calculateAverage} />
+            <div className="mt-6 flex justify-between gap-4">
+                <button onClick={() => navigate('/')} className="w-1/2 bg-gray-700 text-white px-4 py-2 rounded hover:bg-gray-600 text-sm">Back Home</button>
+                <div className="w-1/2">
+                    <DownloadButton gameStats={gameStats} history={history} calculateAverage={calculateAverage} />
+                </div>
             </div>
         </div>
     );
