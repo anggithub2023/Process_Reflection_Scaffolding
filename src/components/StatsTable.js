@@ -8,29 +8,29 @@ function StatsTable({ gameStats, tableRef }) {
                 <table className="w-full table-fixed text-sm text-left border border-gray-200 dark:border-gray-700">
                     <thead className="bg-gray-100 dark:bg-gray-700 text-gray-900 dark:text-gray-100">
                     <tr>
-                        <th className="p-2 font-semibold w-[48px] text-center">$1</th>
-                        <th className="p-3 font-semibold">Team</th>
-                        <th className="p-3 font-semibold">PTS</th>
-                        <th className="p-3 font-semibold">AST</th>
-                        <th className="p-3 font-semibold">REB</th>
-                        <th className="p-3 font-semibold">STL</th>
-                        <th className="p-3 font-semibold">TOV</th>
-                        <th className="p-3 font-semibold">FT</th>
-                        <th className="p-3 font-semibold">MIN</th>
+                        <th className="p-2 font-semibold w-[64px] text-center">Date</th>
+                        <th className="p-2 font-semibold w-[80px] text-center">Team</th>
+                        <th className="p-2 font-semibold w-[48px] text-center">PTS</th>
+                        <th className="p-2 font-semibold w-[48px] text-center">AST</th>
+                        <th className="p-2 font-semibold w-[48px] text-center">REB</th>
+                        <th className="p-2 font-semibold w-[48px] text-center">STL</th>
+                        <th className="p-2 font-semibold w-[48px] text-center">TOV</th>
+                        <th className="p-2 font-semibold w-[48px] text-center">FT</th>
+                        <th className="p-2 font-semibold w-[48px] text-center">MIN</th>
                     </tr>
                     </thead>
                     <tbody>
                     {gameStats.map((gs, index) => (
                         <tr key={index} className="border-t border-gray-200 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-700">
-                            <td className="p-2 text-center$1">{gs.date ? new Date(gs.date).toLocaleDateString(undefined, { month: 'numeric', day: 'numeric', year: '2-digit' }) : ''}</td>
-                            <td className="p-3 truncate max-w-[80px]">{gs.opponent}</td>
-                            <td className="p-3">{gs.points}</td>
-                            <td className="p-3">{gs.assists}</td>
-                            <td className="p-3">{gs.rebounds}</td>
-                            <td className="p-3">{gs.steals}</td>
-                            <td className="p-3">{gs.turnovers}</td>
-                            <td className="p-3">{gs.freeThrows}</td>
-                            <td className="p-3">{gs.minutes}</td>
+                            <td className="p-2 text-center">{gs.date ? new Date(gs.date).toLocaleDateString(undefined, { month: 'numeric', day: 'numeric', year: '2-digit' }) : ''}</td>
+                            <td className="truncate max-w-[80px] text-center" title={gs.opponent}>{gs.opponent}</td>
+                            <td className="p-2 text-center">{gs.points}</td>
+                            <td className="p-2 text-center">{gs.assists}</td>
+                            <td className="p-2 text-center">{gs.rebounds}</td>
+                            <td className="p-2 text-center">{gs.steals}</td>
+                            <td className="p-2 text-center">{gs.turnovers}</td>
+                            <td className="p-2 text-center">{gs.freeThrows}</td>
+                            <td className="p-2 text-center">{gs.minutes}</td>
                         </tr>
                     ))}
                     </tbody>
