@@ -61,9 +61,6 @@ function ResultsPage() {
                     Export CSV
                 </button>
             </div>
-            <button
-                onClick={() => navigate('/stats')}
-                className="mt-6 w-full bg-green-600 text-white px-6 py-3 rounded hover:bg-green-500"> Player Stats </button>
         </div>
     );
 }
