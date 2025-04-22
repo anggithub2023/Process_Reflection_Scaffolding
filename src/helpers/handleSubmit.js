@@ -1,8 +1,11 @@
 import QUESTIONS from '../data/questions';
 import { scoreValue } from './scoring';
 
-const handleSubmit = (answers, setScoreSummary, setShowModal) => {
-    const allAnswered = Object.keys(QUESTIONS).every(section => {
+const handleSubmit = () => {
+    const allSections = Object.keys(QUESTIONS);
+
+    // Enforce minimum 5 answers per section
+    const allAnswered = allSections.every(section => {
         const answeredCount = QUESTIONS[section].filter((_, idx) => answers[`${section}-${idx}`]).length;
         return answeredCount >= 5;
     });
@@ -16,45 +19,41 @@ const handleSubmit = (answers, setScoreSummary, setShowModal) => {
         if (scrollTarget) {
             scrollTarget.scrollIntoView({ behavior: 'smooth', block: 'center' });
         }
-        setTimeout(() => alert('Please answer all questions before submitting.'), 200);
+        setTimeout(() => alert("Please answer at least 5 questions in each section."), 200);
         return;
     }
 
-    const offenseRaw = QUESTIONS.offense.map((_, i) => scoreValue(answers[`offense-${i}`])).filter(v => v !== null);
-    const offense = offenseRaw.slice(0, 5).reduce((acc, val) => acc + val, 0);
-    const offensePct = (offense / 10) * 100;
+    // Score logic: average of all answered questions
+    const calcSectionScore = (sectionKey) => {
+        const rawScores = QUESTIONS[sectionKey].map((_, i) =>
+            scoreValue(answers[`${sectionKey}-${i}`])
+        ).filter(v => v !== null);
+        const totalScore = rawScores.reduce((sum, val) => sum + val, 0);
+        const pct = rawScores.length > 0 ? (totalScore / (rawScores.length * 2)) * 100 : 0;
+        return Math.round(pct);
+    };
 
-    const defenseRaw = QUESTIONS.defense.map((_, i) => scoreValue(answers[`defense-${i}`])).filter(v => v !== null);
-    const defense = defenseRaw.slice(0, 5).reduce((acc, val) => acc + val, 0);
-    const defensePct = (defense / 10) * 100;
-
-    const cultureRaw = QUESTIONS.teamIdentity.map((_, i) => scoreValue(answers[`teamIdentity-${i}`])).filter(v => v !== null);
-    const culture = cultureRaw.slice(0, 5).reduce((acc, val) => acc + val, 0);
-    const culturePct = (culture / 10) * 100;
+    const offensePct = calcSectionScore("offense");
+    const defensePct = calcSectionScore("defense");
+    const culturePct = calcSectionScore("teamIdentity");
 
     const total = Math.round((offensePct + defensePct + culturePct) / 3);
 
     const summary = {
         timestamp: new Date().toISOString(),
         total,
-        offense: Math.round(offensePct),
-        defense: Math.round(defensePct),
-        teamIdentity: Math.round(culturePct),
+        offense: offensePct,
+        defense: defensePct,
+        teamIdentity: culturePct,
         answers: { ...answers }
     };
 
-    const history = JSON.parse(localStorage.getItem('processHistory')) || [];
+    const history = JSON.parse(localStorage.getItem("processHistory")) || [];
     history.push(summary);
-    localStorage.setItem('processHistory', JSON.stringify(history));
-    localStorage.removeItem('processAnswers');
+    localStorage.setItem("processHistory", JSON.stringify(history));
+    localStorage.removeItem("processAnswers");
 
-    setScoreSummary({
-        total,
-        offense: Math.round(offensePct),
-        defense: Math.round(defensePct),
-        culture: Math.round(culturePct)
-    });
-
+    setScoreSummary(summary);
     setShowModal(true);
 };
 
