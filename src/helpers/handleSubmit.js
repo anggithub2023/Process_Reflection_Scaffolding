@@ -1,10 +1,10 @@
 import QUESTIONS from '../data/questions';
 import { scoreValue } from './scoring';
 
-const handleSubmit = () => {
+const handleSubmit = (answers, setScoreSummary, setShowModal) => {
     const allSections = Object.keys(QUESTIONS);
 
-    // Enforce minimum 5 answers per section
+    // Ensure each section has at least 5 answered questions
     const allAnswered = allSections.every(section => {
         const answeredCount = QUESTIONS[section].filter((_, idx) => answers[`${section}-${idx}`]).length;
         return answeredCount >= 5;
@@ -23,7 +23,7 @@ const handleSubmit = () => {
         return;
     }
 
-    // Score logic: average of all answered questions
+    // Section score calculation
     const calcSectionScore = (sectionKey) => {
         const rawScores = QUESTIONS[sectionKey].map((_, i) =>
             scoreValue(answers[`${sectionKey}-${i}`])
