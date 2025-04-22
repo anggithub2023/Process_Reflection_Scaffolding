@@ -2,7 +2,7 @@ import React, { useReducer, useEffect, useState } from 'react';
 import ReflectionModal from '../components/ReflectionModal';
 import SectionBlock from '../components/SectionBlock';
 
-import QUESTIONS from '../data/questions';
+import QUESTIONS from '../data/basketball/questions';
 import answersReducer from '../reducers/answersReducer';
 import handleSubmit from '../helpers/handleSubmit';
 
