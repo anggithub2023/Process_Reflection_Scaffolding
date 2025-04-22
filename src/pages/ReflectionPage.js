@@ -60,7 +60,7 @@ function ReflectionPage() {
                   offense={scoreSummary.offense}
                   defense={scoreSummary.defense}
                   culture={scoreSummary.culture}
-                  onClose={() => window.location.href = '/stats'}
+                  onClose={() => window.location.href = '/'}
               />
           )}
         </div>
