@@ -55,6 +55,6 @@ const handleSubmit = (answers, setScoreSummary, setShowModal) => {
 
     setScoreSummary(summary);
     setShowModal(true);
-};
+}
 
 export default handleSubmit;
