@@ -36,6 +36,14 @@ function HomePage() {
                     </h2>
                     <p className="text-gray-600 dark:text-gray-300 text-sm">Check in on your mental and physical readiness before each session — build focus, recover smarter, and show up prepared.</p>
                 </div>
+                <div onClick={() => navigate('/injury')} className="cursor-pointer bg-white dark:bg-gray-800 bg-opacity-90 backdrop-blur-md p-6 rounded-xl shadow-lg hover:shadow-rose-300 hover:scale-105 transform transition duration-300">
+                    <h2 className="text-xl font-semibold text-center text-rose-600 mb-1">
+                <span className="flex items-center justify-center gap-2">
+                    <MdHealthAndSafety className="text-white bg-rose-500 rounded-full p-1 text-3xl sm:text-4xl transition-transform duration-200 group-hover:scale-110" /> Injury Prevention
+                </span>
+                    </h2>
+                    <p className="text-gray-600 dark:text-gray-300 text-sm">Explore tips, warm-ups, and routines to reduce the risk of injury and stay in the game longer.</p>
+                </div>
 
                 <div onClick={() => navigate('/stats')} className="cursor-pointer bg-white dark:bg-gray-800 bg-opacity-90 backdrop-blur-md p-6 rounded-xl shadow-lg hover:shadow-green-300 hover:scale-105 transform transition duration-300">
                     <h2 className="text-xl font-semibold text-center text-green-700 mb-1">
