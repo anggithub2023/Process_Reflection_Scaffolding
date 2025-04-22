@@ -34,8 +34,7 @@ function HomePage() {
                     <h2 className="flex items-center justify-center gap-2 text-xl font-semibold text-purple-700 mb-1">
                         <FaBrain className="text-white bg-purple-500 rounded-full p-1 text-3xl sm:text-4xl transition-transform duration-200 group-hover:scale-110" /> Readiness
                     </h2>
-                    <p className="text-gray-600 dark:text-gray-300 text-sm">
-                        Learn how to prevent injuries with real-life strategies from a certified athletic trainer — warm-ups, recovery tips, and more.
+                    <p className="text-gray-600 dark:text-gray-300 text-sm text-center">Learn how to prevent injuries with real-life strategies from a certified athletic trainer — warm-ups, recovery tips, and more.
                     </p>
                 </div>
                 <div onClick={() => navigate('/injury')} className="cursor-pointer bg-white dark:bg-gray-800 bg-opacity-90 backdrop-blur-md p-6 rounded-xl shadow-lg hover:shadow-rose-300 hover:scale-105 transform transition duration-300">
