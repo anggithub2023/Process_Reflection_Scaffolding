@@ -1,7 +1,7 @@
 import React from 'react';
 import { FaBrain, FaChartBar, FaVideo } from 'react-icons/fa';
 import { GiLevelEndFlag } from 'react-icons/gi';
-import { MdOutlineEditNote } from 'react-icons/md';
+import {MdHealthAndSafety, MdOutlineEditNote} from 'react-icons/md';
 import { GiMuscleUp } from 'react-icons/gi';
 import { useNavigate } from 'react-router-dom';
 
