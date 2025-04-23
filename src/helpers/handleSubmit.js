@@ -1,4 +1,4 @@
-import QUESTIONS from '../data/questions';
+import QUESTIONS from '../data/basketball/questions';
 import { scoreValue } from './scoring';
 
 const handleSubmit = (answers, setScoreSummary, setShowModal) => {
